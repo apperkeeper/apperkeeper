@@ -1,5 +1,3 @@
-// URI: postgres://uquhkhrl:x6ledfJxj4HSiDzjuw8ySndw-pu9Gd6f@lallah.db.elephantsql.com:5432/uquhkhrl
-
 /* LinkedIn API
 {
     "elements":[
