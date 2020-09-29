@@ -1,0 +1,41 @@
+{
+  "name": "apper-keeper",
+  "version": "1.0.0",
+  "description": "A tool to automate job application tracking.",
+  "main": "index.html",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "build": "NODE_ENV=production webpack & NODE_ENV=production npm start",
+    "dev": "NODE_ENV=development webpack-dev-server --open --hot & NODE_ENV=development nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apperkeeper/apperkeeper.git"
+  },
+  "author": "Taylor Riley Du, Burak Caliskan, Nick Kruckenberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apperkeeper/apperkeeper/issues"
+  },
+  "homepage": "https://github.com/apperkeeper/apperkeeper#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "css-loader": "^4.3.0",
+    "nodemon": "^2.0.4",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
