@@ -15,16 +15,12 @@ const Notes = ({ columnId }) => {
   };
 
   return (
-    <form className="card-content bg-form swing-in-bottom-bck">
+    <div>
       <AppCard />
-      <button
-        type="button"
-        className="button has-text-white swing-in-bottom-bck"
-        onClick={handleAddClick}
-      >
+      <button type="button" onClick={handleAddClick}>
         Add Task
       </button>
-    </form>
+    </div>
   );
 };
 

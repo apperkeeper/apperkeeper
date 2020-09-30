@@ -40,11 +40,6 @@ const AppCard = (props) => {
         <label className="applied-at">Date Applied</label>
         <input type="date" id="applied_at" />
       </div>
-      <div className="form">
-        <button className="submit-button" type="submit">
-          Add App
-        </button>
-      </div>
     </form>
   );
 };
