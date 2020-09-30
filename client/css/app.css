@@ -1,20 +1,20 @@
-h1 {
+/* h1 {
   font-family: sans-serif;
 }
 
 h2 {
   font-family: sans-serif;
-}
+} */
 
 /* Container for job listings column and application status columns */
-.main-container {
+/* .main-container {
   display: flex;
   justify-content: space-between;
   margin: 0px 100px 0px 100px;
-}
+} */
 
 /* Styling for all columns */
-.column {
+/* .column {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,4 +22,4 @@ h2 {
   width: 250px;
   border: 2px solid black;
   border-radius: 5px;
-}
+} */

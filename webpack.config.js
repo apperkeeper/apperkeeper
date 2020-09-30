@@ -43,17 +43,17 @@ module.exports = () => {
               presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
-        },
-        {
-          test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
-        },
-        {
-          test: /.(png|svg|jpg|gif|woff|ico|woff2|eot|ttf|otf)$/,
-          use: ['file-loader'],
-        },
-      ],
-    },
+      },
+      {
+        test: [/.css$|.scss$/],
+        use: ['style-loader', 'css-loader','sass-loader'],
+      },
+      {
+        test: /.(png|svg|jpg|gif|woff|ico|woff2|eot|ttf|otf)$/,
+        use: ['file-loader'],
+      },
+    ],
+  },
     plugins: [
       new webpack.DefinePlugin(envKeys)
     ]

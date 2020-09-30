@@ -1,0 +1,62 @@
+
+ .swing-in-bottom-bck {
+    animation: swing-in-bottom-bck 1.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      both;
+  }
+  
+  @keyframes swing-in-bottom-bck {
+    0% {
+      transform: rotateX(-70deg);
+      transform-origin: bottom;
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0);
+      transform-origin: bottom;
+      opacity: 1;
+    }
+  }
+  
+  .swing-in-top-bck {
+    -webkit-animation: swing-in-top-bck 1.6s
+      cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: swing-in-top-bck 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  }
+  
+  /**
+     * ----------------------------------------
+     * animation swing-in-top-bck
+     * ----------------------------------------
+     */
+  @-webkit-keyframes swing-in-top-bck {
+    0% {
+      -webkit-transform: rotateX(70deg);
+      transform: rotateX(70deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
+    }
+  }
+  @keyframes swing-in-top-bck {
+    0% {
+      -webkit-transform: rotateX(70deg);
+      transform: rotateX(70deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
+    }
+  }
