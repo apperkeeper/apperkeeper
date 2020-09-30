@@ -1,5 +1,13 @@
+// require library dependancies
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
+
+// load environment variables
+require('dotenv').config();
+
+// require other modules
+const authController = require('./controllers/authController');
 
 // Create instance of Express server
 const app = express();
@@ -7,6 +15,14 @@ const PORT = process.env.PORT || 3000;
 
 // Parse incoming requests
 app.use(express.json());
+app.use(express.urlencoded());
+app.use(cookieParser());
+
+app.use('/auth', authController.getToken, (req, res) => {
+  return res
+    .status(200)
+    .redirect('http://localhost:8080');
+});
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/public', express.static(path.resolve(__dirname, '../public')));
