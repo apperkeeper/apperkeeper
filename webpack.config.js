@@ -16,6 +16,7 @@ module.exports = () => {
     output: {
       path: path.resolve(__dirname, './public'),
       filename: 'bundle.js',
+      publicPath: '/public/',
     },
     mode: process.env.NODE_ENV,
     devServer: {
@@ -46,6 +47,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /.(png|svg|jpg|gif|woff|ico|woff2|eot|ttf|otf)$/,
+          use: ['file-loader'],
         },
       ],
     },
