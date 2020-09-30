@@ -1,13 +1,31 @@
+// require library dependancies
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
 
-// Create instance of Express server
+// load environment variables
+require('dotenv').config();
+
+// require other modules
+const authController = require('./controllers/authController');
+
+// create instance of Express server
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Parse incoming requests
+// parse incoming requests
 app.use(express.json());
+app.use(express.urlencoded());
+app.use(cookieParser());
 
+// handle redirect from LinkedIn OAuth server
+app.use('/auth', authController.getToken, (req, res) => {
+  return res
+    .status(200)
+    .redirect('http://localhost:8080');
+});
+
+// serve static files when in production mode
 if (process.env.NODE_ENV === 'production') {
   app.use('/public', express.static(path.resolve(__dirname, '../public')));
   app.get('/', (req, res) => {
@@ -33,6 +51,7 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
+// open server on port, defined above
 app.listen(PORT, () => {
   console.log('Node.js/Express server listening on port ', PORT);
 });
