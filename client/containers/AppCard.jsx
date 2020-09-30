@@ -2,11 +2,12 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 // Application card
+// Should be draggable
+
 const AppCard = (props) => {
   const onSubmit = (event) => {
     event.preventDefault(event);
-    console.log(event.target.name.value);
-    console.log(event.target.email.value);
+    // Send form data to database
   };
   return (
     <div className="list-item">
