@@ -48,10 +48,11 @@ appController.getApps = (req, res, next) => {
 
 // Delete an application from the database based on ID
 appController.deleteApp = (req, res, next) => {
+  const id = req.params.id;
   const queryString = `
         DELETE FROM Applications WHERE id = $1;
         `;
-  db.query(queryString, [req.params.id])
+  db.query(queryString, [id])
     .then(() => {
       return next();
     })
