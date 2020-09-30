@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import StatusColumn from "./StatusColumn";
 import DrgDrpContext from "../provider/DragDropProvider";
 import { DragDropContext } from "react-beautiful-dnd";
+import Login from "../components/Login"
 
 function App() {
   const { state, onDragEnd } = useContext(DrgDrpContext);
 
   return (
+    <div>
+    <Login />
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="section bg-full">
         <div className="container bg-blue">
@@ -31,6 +34,7 @@ function App() {
         </div>
       </div>
     </DragDropContext>
+    </div>
   );
 }
 
