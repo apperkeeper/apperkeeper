@@ -1,8 +1,14 @@
-import React from 'react';
-import { render } from 'react-dom';
-import App from './containers/App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./containers/App";
+import { DragDropProvider } from "./provider/DragDropProvider";
+import "./sass/main.scss";
 
-render(
-    <App />,
+ReactDOM.render(
+  <React.StrictMode>
+    <DragDropProvider>
+      <App />
+    </DragDropProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );

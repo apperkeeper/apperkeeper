@@ -21,19 +21,24 @@
   "homepage": "https://github.com/apperkeeper/apperkeeper#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "bulma": "^0.9.1",
     "concurrently": "^5.3.0",
-    "dotenv": "^8.2.0",
     "css-loader": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
+    "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
