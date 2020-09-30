@@ -7,7 +7,7 @@ appController.createApp = (req, res, next) => {
   const position = req.body.position;
   const contact = req.body.contact;
   const notes = req.body.notes;
-  const status = req.body.staus;
+  const status = req.body.status;
   const applied_at = req.body.applied_at;
   const queryString = `
       INSERT INTO Applications (company, position, contact, notes, status, applied_at)
