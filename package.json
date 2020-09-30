@@ -21,6 +21,7 @@
   "homepage": "https://github.com/apperkeeper/apperkeeper#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "pg": "^8.3.3",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1"

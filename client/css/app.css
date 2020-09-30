@@ -23,3 +23,12 @@ h2 {
   border: 2px solid black;
   border-radius: 5px;
 }
+
+/* Styling for application cards */
+.app-card {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
