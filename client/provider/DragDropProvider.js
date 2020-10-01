@@ -45,10 +45,11 @@ const DragDropProvider = ({ children }) => {
     setState(newState);
   };
 
-  // Handling adding new apps to columns
-  const addData = (columnId, newApp, e) => {
-    // Create app in database
-    fetch('/', {
+  // Add data to database
+  // Create app in database
+  // Retrieve id and data from database to generate new card
+  const addToDatabase = (columnId, newApp, e) => {
+    fetch('/app', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -59,7 +60,10 @@ const DragDropProvider = ({ children }) => {
         status: 'Applied',
       }),
     });
-    // Retrieve id and data from database to generate new card
+  };
+
+  // Handling adding new apps to columns
+  const addData = (columnId, newApp, e) => {
     const column = state.columns[columnId];
     // Adding new apps
     const apps = state.apps;

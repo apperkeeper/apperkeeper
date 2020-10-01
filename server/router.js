@@ -3,15 +3,15 @@ import appController from './controllers/appController';
 
 const router = express.Router();
 
-router.get('/apps', appController.getApps, (req, res) => {
+router.get('/', appController.getApps, (req, res) => {
   return res.status(200).json({ applications: res.locals.applications });
 });
 
-router.post('/apps', appController.createApp, (req, res) => {
+router.post('/', appController.createApp, (req, res) => {
   return res.status(200).json({ applications: res.locals.applications });
 });
 
-router.delete('/apps:id', appController.deleteApp, (req, res) => {
+router.delete('/:id', appController.deleteApp, (req, res) => {
   return res.status(200).json({ applications: res.locals.applications });
 });
 

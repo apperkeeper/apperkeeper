@@ -2,6 +2,7 @@
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const appRouter = require('./router');
 
 // load environment variables
 require('dotenv').config();
@@ -20,18 +21,17 @@ app.use(cookieParser());
 
 // handle redirect from LinkedIn OAuth server
 app.use('/auth', authController.getToken, (req, res) => {
-  return res
-    .status(200)
-    .redirect('http://localhost:8080');
+  return res.status(200).redirect('http://localhost:8080');
 });
+
+// directing to router
+app.use('/app', appRouter);
 
 // serve static files when in production mode
 if (process.env.NODE_ENV === 'production') {
   app.use('/public', express.static(path.resolve(__dirname, '../public')));
   app.get('/', (req, res) => {
-    return res
-      .status(200)
-      .sendFile(path.resolve(__dirname, '../index.html'));
+    return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
   });
 }
 

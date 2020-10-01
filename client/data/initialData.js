@@ -1,11 +1,17 @@
 // Stores state for the app
 const initialData = {
-  apps: {},
+  tasks: {
+    'task-1': {
+      id: 'task-1',
+      company: 'Google',
+      position: 'Software Engineer',
+    },
+  },
   columns: {
     wishlist: {
       id: 'wishlist',
       title: 'Wishlist',
-      appsOrder: [],
+      appsOrder: ['task-1'],
       isEditing: false,
     },
     applied: {
