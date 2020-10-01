@@ -4,7 +4,7 @@ body {
 }
 
 .bg-full {
-  background-image: src= '../assets/background.png';
+  background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/229c71ef-5266-43fc-9572-9e78bd8e2afe/d9vpfkm-69e8995f-14cd-4728-a3ba-4fee097a8c4b.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8yMjljNzFlZi01MjY2LTQzZmMtOTU3Mi05ZTc4YmQ4ZTJhZmUvZDl2cGZrbS02OWU4OTk1Zi0xNGNkLTQ3MjgtYTNiYS00ZmVlMDk3YThjNGIuanBnIn1dXX0.ocR2Os697UeYiBiRylGak4JeOU7rB7dVkvmrA4SIB4A);
   height: 100vh;
   width: 100%;
   background-position: center;
@@ -13,7 +13,7 @@ body {
 }
 
 .bg-blue {
-  background-color: rgb(240, 238, 250);
+  background-color: rgba(255,255,255,0.5);
   height: 100%;
   width: 100%;
   border-radius: 15px;
