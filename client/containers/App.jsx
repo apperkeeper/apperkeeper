@@ -9,7 +9,6 @@ function App() {
 
   return (
     <div>
-      <Login />
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="section bg-full">
           <div className="container bg-blue">
