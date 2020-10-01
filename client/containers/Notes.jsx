@@ -18,7 +18,7 @@ const Notes = ({ columnId }) => {
     <div>
       <AppCard />
       <button type="button" onClick={handleAddClick}>
-        Add Task
+        Add App
       </button>
     </div>
   );
