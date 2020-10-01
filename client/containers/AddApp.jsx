@@ -3,7 +3,7 @@ import { IoIosAddCircle } from 'react-icons/io';
 import DrgDrpContext from '../provider/DragDropProvider';
 import NewApp from './NewApp';
 
-const AddJob = ({ columnId, isEditing }) => {
+const AddApp = ({ columnId, isEditing }) => {
   const { handleEditing } = useContext(DrgDrpContext);
   if (isEditing) {
     return <NewApp columnId={columnId} />;

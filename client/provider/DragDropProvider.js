@@ -49,9 +49,19 @@ const DragDropProvider = ({ children }) => {
   const addData = (columnId, newApp, e) => {
     const column = state.columns[columnId];
     // Adding new apps
+    // Create app in database
+    // Retrieve id and data from database to generate new card
     const apps = state.apps;
-    const id = {id from database};
-    const appData = { id: {id}, company: {company}, position: {position}, contact: {contact}, notes: {notes}, status: {status}, applied_at: {applied_at} };
+    const id = 2;
+    const appData = {
+      id: 2,
+      company: 'Google',
+      position: 'Software Engineer',
+      contact: 'Burak',
+      notes: 'sub $200,000',
+      status: 'Applied',
+      applied_at: '2020-09-30',
+    };
     apps[id] = appData;
     // Adding the new app id to the column object
     const newAppsOrder = [...column.appsOrder];
