@@ -3,7 +3,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import AllCards from './AllCards';
 import AddApp from './AddApp';
 
-const StatusColumn = React.memo(({ tasks, column, isEditing }) => {
+const StatusColumn = React.memo(({ apps, column, isEditing }) => {
   return (
     <div className="column is-marginless">
       <div className="card card-radius ">
@@ -17,7 +17,7 @@ const StatusColumn = React.memo(({ tasks, column, isEditing }) => {
                 ref={provided.innerRef}
                 // isDraggingOver={snapshot.isDraggingOver}
               >
-                <AllCards tasks={tasks} />
+                <AllCards apps={apps} />
                 {provided.placeholder}
               </div>
             )}

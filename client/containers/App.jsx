@@ -17,13 +17,11 @@ function App() {
               {state.columnsOrder.map((columnId, index) => {
                 const column = state.columns[columnId];
                 const isEditing = column.isEditing;
-                const task = column.appsOrder.map(
-                  (taskId) => state.apps[taskId]
-                );
+                const app = column.appsOrder.map((appId) => state.apps[appId]);
                 return (
                   <StatusColumn
                     key={column.id}
-                    tasks={task}
+                    apps={app}
                     index={index}
                     column={column}
                     isEditing={isEditing}

@@ -62,10 +62,10 @@ const DragDropProvider = ({ children }) => {
     const column = state.columns[columnId];
     // Adding new apps
     const apps = state.apps;
-    const tasksLength = Object.keys(apps).length;
-    const newTaskId = `task-${tasksLength + 1}`;
-    const taskContent = {
-      id: newTaskId,
+    const appsLength = Object.keys(apps).length;
+    const newAppId = `task-${appsLength + 1}`;
+    const appContent = {
+      id: newAppId,
       company: newCompany,
       position: newPosition,
       contact: newContact,
@@ -73,14 +73,14 @@ const DragDropProvider = ({ children }) => {
       date: newDate,
     };
 
-    apps[newTaskId] = taskContent;
+    apps[newAppId] = appContent;
     // Adding the new app id to the column object
-    const newTasksOrder = [...column.appsOrder];
-    newTasksOrder.push(newTaskId);
+    const newAppsOrder = [...column.appsOrder];
+    newAppsOrder.push(newAppId);
 
     const newColumn = {
       ...column,
-      appsOrder: newTasksOrder,
+      appsOrder: newAppsOrder,
     };
 
     // Update the state in initialData

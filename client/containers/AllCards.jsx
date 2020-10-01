@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Cards from './Cards';
 
-const AllCards = React.memo(({ tasks }) => {
-  useEffect(() => {}, [tasks]);
-  return tasks.map((task, index) => (
-    <Cards key={task.id} task={task} index={index} />
+const AllCards = React.memo(({ apps }) => {
+  useEffect(() => {}, [apps]);
+  return apps.map((app, index) => (
+    <Cards key={app.id} app={app} index={index} />
   ));
 });
 
