@@ -3,11 +3,12 @@ import DrgDrpContext from '../provider/DragDropProvider';
 
 const NewApp = ({ columnId }) => {
   const { addData, endEditing } = useContext(DrgDrpContext);
-  let newTask = useRef(null);
+  let newCompany = useRef(null);
+  let newPosition = useRef(null);
 
   const handleAddClick = () => {
     endEditing(columnId);
-    addData(columnId, newTask.value);
+    addData(columnId, newCompany.value, newPosition.value);
   };
 
   return (
@@ -19,12 +20,17 @@ const NewApp = ({ columnId }) => {
             type="text"
             id="company"
             placeholder="Google"
-            ref={(value) => (newTask = value)}
+            ref={(value) => (newCompany = value)}
           />
         </div>
         <div className="form">
           <label className="position">Position</label>
-          <input type="text" id="position" placeholder="Software Engineer" />
+          <input
+            type="text"
+            id="position"
+            placeholder="Software Engineer"
+            ref={(value) => (newPosition = value)}
+          />
         </div>
         <div className="form">
           <label className="contact">Contact</label>

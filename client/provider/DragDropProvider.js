@@ -50,13 +50,17 @@ const DragDropProvider = ({ children }) => {
   // Retrieve id and data from database to generate new card
 
   // Handling adding new apps to columns
-  const addData = (columnId, newTask, e) => {
+  const addData = (columnId, newCompany, newPosition, e) => {
     const column = state.columns[columnId];
     // Adding new apps
     const apps = state.apps;
     const tasksLength = Object.keys(apps).length;
     const newTaskId = `task-${tasksLength + 1}`;
-    const taskContent = { id: newTaskId, content: newTask };
+    const taskContent = {
+      id: newTaskId,
+      company: newCompany,
+      position: newPosition,
+    };
 
     apps[newTaskId] = taskContent;
     // Adding the new app id to the column object

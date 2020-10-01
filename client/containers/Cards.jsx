@@ -11,7 +11,8 @@ const Cards = React.memo(({ task, index }) => {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <p>{task.content}</p>
+          <p>Company: {task.company}</p>
+          <p>Position: {task.position}</p>
           <button className="delete is-pulled-right btn-hover" />
         </li>
       )}
