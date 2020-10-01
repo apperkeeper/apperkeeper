@@ -1,10 +1,21 @@
+// Stores state for the app
 const initialData = {
-  apps: {},
+  apps: {
+    'app-1': {
+      id: 'app-1',
+      company: 'Google',
+      position: 'Software Engineer',
+      contact: 'Burak',
+      notes: '$200,000',
+      status: 'Interested',
+      date: '10/01/20',
+    },
+  },
   columns: {
-    wishlist: {
-      id: 'wishlist',
-      title: 'Wishlist',
-      appsOrder: [],
+    interested: {
+      id: 'interested',
+      title: 'Interested',
+      appsOrder: ['app-1'],
       isEditing: false,
     },
     applied: {
@@ -26,7 +37,7 @@ const initialData = {
       isEditing: false,
     },
   },
-  columnsOrder: ['wishlist', 'applied', 'phone', 'onsite'],
+  columnsOrder: ['interested', 'applied', 'phone', 'onsite'],
 };
 
 export default initialData;

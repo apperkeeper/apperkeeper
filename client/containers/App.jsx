@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import StatusColumn from './StatusColumn';
-import DrgDrpContext from '../provider/DragDropProvider';
 import { DragDropContext } from 'react-beautiful-dnd';
-import Login from '../components/Login';
+import DrgDrpContext from '../provider/DragDropProvider';
+import Login from './Login';
+import StatusColumn from './StatusColumn';
 
 function App() {
   const { state, onDragEnd } = useContext(DrgDrpContext);
@@ -16,13 +16,11 @@ function App() {
               {state.columnsOrder.map((columnId, index) => {
                 const column = state.columns[columnId];
                 const isEditing = column.isEditing;
-                const task = column.appsOrder.map(
-                  (taskId) => state.tasks[taskId]
-                );
+                const app = column.appsOrder.map((appId) => state.apps[appId]);
                 return (
                   <StatusColumn
                     key={column.id}
-                    tasks={task}
+                    apps={app}
                     index={index}
                     column={column}
                     isEditing={isEditing}

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import initialData from '../data/initialData';
 
-// Creating new context
+// Create new context
 const DrgDrpContext = React.createContext();
 
+// Using initialData as the initial state
 const DragDropProvider = ({ children }) => {
   let [state, setState] = useState(initialData);
 
+  // Updates the state of the columns defined in initialData using the id key for each column
+  // Changes the isEditing property of the column back to false
   const handleEditing = (columnId) => {
     const column = state.columns[columnId];
     column.isEditing = true;
@@ -24,6 +27,7 @@ const DragDropProvider = ({ children }) => {
     setState(newState);
   };
 
+  // Changes the isEditing property of the column back to false and updates the state of the columns
   const endEditing = (columnId) => {
     const column = state.columns[columnId];
     column.isEditing = false;
@@ -41,28 +45,49 @@ const DragDropProvider = ({ children }) => {
     setState(newState);
   };
 
-  //handling adding new Tasks to columns
-  const addData = (columnId, newTask, e) => {
-    const column = state.columns[columnId];
-    //adding new tasks
-    const tasks = state.tasks;
-    const tasksLength = Object.keys(tasks).length;
-    const newTaskId = `task-${tasksLength + 1}`;
-    const taskContent = { id: newTaskId, content: newTask };
+  // Add data to database
+  // Create app in database
+  // Retrieve id and data from database to generate new card
 
-    tasks[newTaskId] = taskContent;
-    // adding the new task id to the column object
-    const newTasksOrder = [...column.tasksOrder];
-    newTasksOrder.push(newTaskId);
+  // Handling adding new apps to columns
+  const addData = (
+    columnId,
+    newCompany,
+    newPosition,
+    newContact,
+    newNotes,
+    newDate,
+    e
+  ) => {
+    const column = state.columns[columnId];
+    // Adding new apps
+    const apps = state.apps;
+    const appsLength = Object.keys(apps).length;
+    const newAppId = `app-${appsLength + 1}`;
+    const appContent = {
+      id: newAppId,
+      company: newCompany,
+      position: newPosition,
+      contact: newContact,
+      notes: newNotes,
+      status: 'Interested',
+      date: newDate,
+    };
+
+    apps[newAppId] = appContent;
+    // Adding the new newAppId to the column
+    const newAppsOrder = [...column.appsOrder];
+    newAppsOrder.push(newAppId);
 
     const newColumn = {
       ...column,
-      tasksOrder: newTasksOrder,
+      appsOrder: newAppsOrder,
     };
 
+    // Update the state in initialData
     const newState = {
       ...state,
-      tasks,
+      apps,
       columns: {
         ...state.columns,
         [column.id]: {
@@ -74,36 +99,29 @@ const DragDropProvider = ({ children }) => {
     setState(newState);
   };
 
-  // handling the dragend method on DragDropContext
+  // Handling the dragEnd method on DragDropContext
   const onDragEnd = (result) => {
     const { draggableId, destination, source } = result;
 
-    // avoid dropping on an a invalid drop area
+    // Avoid dropping on an invalid drop area
     if (!destination) {
-      return;
-    }
-
-    // avoid dropping on the original place
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
       return;
     }
 
     const start = state.columns[source.droppableId];
     const end = state.columns[destination.droppableId];
-    //reordering tasks in the same column
+
+    // Reordering apps in the same column
     if (start === end) {
       const column = state.columns[source.droppableId];
-      const newTasksOrder = [...column.tasksOrder];
+      const newAppsOrder = [...column.appsOrder];
 
-      newTasksOrder.splice(source.index, 1);
-      newTasksOrder.splice(destination.index, 0, draggableId);
+      newAppsOrder.splice(source.index, 1);
+      newAppsOrder.splice(destination.index, 0, draggableId);
 
       const newColumn = {
         ...column,
-        tasksOrder: newTasksOrder,
+        appsOrder: newAppsOrder,
       };
 
       const newColumns = {
@@ -124,20 +142,20 @@ const DragDropProvider = ({ children }) => {
     const startColumn = state.columns[source.droppableId];
     const endColumn = state.columns[destination.droppableId];
 
-    const newStartTasksOrder = [...startColumn.tasksOrder];
-    const newEndTasksOrder = [...endColumn.tasksOrder];
+    const newStartAppsOrder = [...startColumn.appsOrder];
+    const newEndAppsOrder = [...endColumn.appsOrder];
 
-    newStartTasksOrder.splice(source.index, 1);
-    newEndTasksOrder.splice(destination.index, 0, draggableId);
+    newStartAppsOrder.splice(source.index, 1);
+    newEndAppsOrder.splice(destination.index, 0, draggableId);
 
     const newStartColumn = {
       ...startColumn,
-      tasksOrder: newStartTasksOrder,
+      appsOrder: newStartAppsOrder,
     };
 
     const newEndColumn = {
       ...endColumn,
-      tasksOrder: newEndTasksOrder,
+      appsOrder: newEndAppsOrder,
     };
 
     const newState = {

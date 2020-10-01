@@ -1,9 +1,9 @@
 import React from 'react';
-import AllCards from './AllCards';
-import AddJob from './AddJob';
 import { Droppable } from 'react-beautiful-dnd';
+import AllCards from './AllCards';
+import AddApp from './AddApp';
 
-const StatusColumn = React.memo(({ tasks, column, isEditing }) => {
+const StatusColumn = React.memo(({ apps, column, isEditing }) => {
   return (
     <div className="column is-marginless">
       <div className="card card-radius ">
@@ -17,13 +17,13 @@ const StatusColumn = React.memo(({ tasks, column, isEditing }) => {
                 ref={provided.innerRef}
                 // isDraggingOver={snapshot.isDraggingOver}
               >
-                <AllCards tasks={tasks} />
+                <AllCards apps={apps} />
                 {provided.placeholder}
               </div>
             )}
           </Droppable>
         </div>
-        <AddJob columnId={column.id} isEditing={isEditing} />
+        <AddApp columnId={column.id} isEditing={isEditing} />
       </div>
     </div>
   );

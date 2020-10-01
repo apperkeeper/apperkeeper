@@ -1,19 +1,23 @@
-import React from "react";
-import { Draggable } from "react-beautiful-dnd";
+import React from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 
-const Cards = React.memo(({ task, index }) => {
+const Cards = React.memo(({ app, index }) => {
   return (
-    <Draggable draggableId={task.id} index={index}>
+    <Draggable draggableId={app.id} index={index}>
       {(provided, snapshot) => (
-        <li
-          className="list-item has-text-white"
+        <div
+          className="list-item"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {task.content}
-          <button className="delete is-pulled-right btn-hover" />
-        </li>
+          <p>Company: {app.company}</p>
+          <p>Position: {app.position}</p>
+          <p>Contact: {app.contact}</p>
+          <p>Notes: {app.notes}</p>
+          <p>Date Applied: {app.date}</p>
+          <button>Delete</button>
+        </div>
       )}
     </Draggable>
   );
