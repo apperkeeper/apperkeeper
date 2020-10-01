@@ -8,6 +8,7 @@ require('dotenv').config();
 
 // require other modules
 const authController = require('./controllers/authController');
+const appRouter = require('./router');
 
 // create instance of Express server
 const app = express();
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cookieParser());
 
+// handle database requests
+app.use('/app', appRouter);
 
 // handle redirect from LinkedIn OAuth server
 app.use('/auth', authController.getToken, (req, res) => {
@@ -61,6 +64,7 @@ app.use((err, req, res, next) => {
     message: { err: 'An error occurred!' },
   };
   const errorObj = Object.assign(defaultErr, err);
+  console.log(err);
   return res.status(errorObj.status).json(errorObj.message);
 });
 

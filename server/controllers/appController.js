@@ -9,13 +9,16 @@ appController.createApp = (req, res, next) => {
   const notes = req.body.notes;
   const status = req.body.status;
   const applied_at = req.body.applied_at;
+  const linkedin_id = req.cookies.token;
   const queryString = `
-      INSERT INTO Applications (company, position, contact, notes, status, applied_at)
-      VALUES ($1, $2, $3, $4, $5, $6);
+      INSERT INTO Applications (company, position, contact, notes, status, applied_at, linkedin_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING *;
       `;
 
-  db.query(queryString, [company, position, contact, notes, status, applied_at])
-    .then(() => {
+  db.query(queryString, [company, position, contact, notes, status, applied_at, linkedin_id])
+    .then((response) => {
+      res.locals.applications = response.rows[0];
       return next();
     })
     .catch((err) => {
@@ -30,9 +33,9 @@ appController.createApp = (req, res, next) => {
 // Retrieve all applications from the database
 appController.getApps = (req, res, next) => {
   const queryString = `
-        SELECT * FROM Applications;
+        SELECT * FROM Applications WHERE linkedin_id = $1;
         `;
-  db.query(queryString)
+  db.query(queryString, [req.cookies.token])
     .then((data) => {
       res.locals.applications = data.rows;
       return next();
