@@ -5,6 +5,9 @@ const initialData = {
       id: 'task-1',
       company: 'Google',
       position: 'Software Engineer',
+      contact: 'Burak',
+      notes: '$200,000',
+      date: '10/01/20',
     },
   },
   columns: {

@@ -13,6 +13,9 @@ const Cards = React.memo(({ task, index }) => {
         >
           <p>Company: {task.company}</p>
           <p>Position: {task.position}</p>
+          <p>Contact: {task.contact}</p>
+          <p>Notes: {task.notes}</p>
+          <p>Date Applied: {task.date}</p>
           <button className="delete is-pulled-right btn-hover" />
         </li>
       )}
