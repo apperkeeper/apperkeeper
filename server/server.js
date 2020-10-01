@@ -2,7 +2,6 @@
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const appRouter = require('./router');
 
 // load environment variables
 require('dotenv').config();
@@ -25,16 +24,22 @@ app.use('/app', appRouter);
 
 // handle redirect from LinkedIn OAuth server
 app.use('/auth', authController.getToken, (req, res) => {
-  return res.status(200).redirect('http://localhost:8080');
+  return res.status(200).redirect('http://localhost:3000');
 });
 
-// directing to router
-app.use('/app', appRouter);
+// app.get('/'), authController.checkCookie, (req, res) => {
+//   return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));;
+// }
 
 // serve static files when in production mode
 if (process.env.NODE_ENV === 'production') {
   app.use('/public', express.static(path.resolve(__dirname, '../public')));
-  app.get('/', (req, res) => {
+  app.get('/client', express.static(path.resolve(__dirname, '../client')));
+  app.get('/signin', (req, res) => {
+    return res.status(200).sendFile(path.resolve(__dirname, '../signin.html'));
+  });
+
+  app.get('/', authController.checkCookie, (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
   });
 }
