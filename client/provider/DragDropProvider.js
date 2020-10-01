@@ -48,49 +48,30 @@ const DragDropProvider = ({ children }) => {
   // Add data to database
   // Create app in database
   // Retrieve id and data from database to generate new card
-  const addToDatabase = (columnId, newApp, e) => {
-    fetch('/app', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        company: 'Facebook',
-        position: 'Software Engineer',
-        contact: 'Nick',
-        notes: '$300,000',
-        status: 'Applied',
-      }),
-    });
-  };
 
   // Handling adding new apps to columns
-  const addData = (columnId, newApp, e) => {
+  const addData = (columnId, newTask, e) => {
     const column = state.columns[columnId];
     // Adding new apps
-    const apps = state.apps;
-    const id = 2;
-    const appData = {
-      id: 2,
-      company: 'Google',
-      position: 'Software Engineer',
-      contact: 'Burak',
-      notes: 'sub $200,000',
-      status: 'Applied',
-      applied_at: '2020-09-30',
-    };
-    apps[id] = appData;
+    const tasks = state.tasks;
+    const tasksLength = Object.keys(tasks).length;
+    const newTaskId = `task-${tasksLength + 1}`;
+    const taskContent = { id: newTaskId, content: newTask };
+
+    tasks[newTaskId] = taskContent;
     // Adding the new app id to the column object
-    const newAppsOrder = [...column.appsOrder];
-    newAppsOrder.push(id);
+    const newTasksOrder = [...column.appsOrder];
+    newTasksOrder.push(newTaskId);
 
     const newColumn = {
       ...column,
-      appsOrder: newAppsOrder,
+      appsOrder: newTasksOrder,
     };
 
     // Update the state in initialData
     const newState = {
       ...state,
-      apps,
+      tasks,
       columns: {
         ...state.columns,
         [column.id]: {
