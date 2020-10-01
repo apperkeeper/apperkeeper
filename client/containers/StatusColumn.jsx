@@ -1,7 +1,7 @@
 import React from 'react';
-import AllCards from './AllCards';
-import AddJob from './AddJob';
 import { Droppable } from 'react-beautiful-dnd';
+import AllCards from './AllCards';
+import AddApp from './AddApp';
 
 const StatusColumn = React.memo(({ tasks, column, isEditing }) => {
   return (
@@ -23,7 +23,7 @@ const StatusColumn = React.memo(({ tasks, column, isEditing }) => {
             )}
           </Droppable>
         </div>
-        <AddJob columnId={column.id} isEditing={isEditing} />
+        <AddApp columnId={column.id} isEditing={isEditing} />
       </div>
     </div>
   );

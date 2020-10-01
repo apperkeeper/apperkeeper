@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react';
 import DrgDrpContext from '../provider/DragDropProvider';
 import AppCard from './AppCard';
 
-const Notes = ({ columnId }) => {
+const NewApp = ({ columnId }) => {
   const { addData, endEditing } = useContext(DrgDrpContext);
   let newTask = useRef(null);
 
@@ -21,4 +21,4 @@ const Notes = ({ columnId }) => {
   );
 };
 
-export default Notes;
+export default NewApp;

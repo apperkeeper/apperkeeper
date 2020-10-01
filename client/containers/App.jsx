@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import StatusColumn from './StatusColumn';
-import DrgDrpContext from '../provider/DragDropProvider';
 import { DragDropContext } from 'react-beautiful-dnd';
+import DrgDrpContext from '../provider/DragDropProvider';
 import Login from '../components/Login';
+import StatusColumn from './StatusColumn';
 
 function App() {
   const { state, onDragEnd } = useContext(DrgDrpContext);
