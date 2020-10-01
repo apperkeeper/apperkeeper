@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import DrgDrpContext from '../provider/DragDropProvider';
-import Login from '../components/Login';
+import Login from './Login';
 import StatusColumn from './StatusColumn';
 
 function App() {
