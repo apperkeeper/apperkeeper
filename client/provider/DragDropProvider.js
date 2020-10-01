@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import initialData from "../data/initialData";
+import React, { useState } from 'react';
+import initialData from '../data/initialData';
 
-//creating new context
+// Creating new context
 const DrgDrpContext = React.createContext();
 
 const DragDropProvider = ({ children }) => {

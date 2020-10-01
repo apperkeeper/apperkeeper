@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import Cards from "./Cards";
+import React, { useEffect } from 'react';
+import Cards from './Cards';
 
 const AllCards = React.memo(({ tasks }) => {
   useEffect(() => {}, [tasks]);
