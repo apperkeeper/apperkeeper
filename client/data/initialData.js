@@ -1,3 +1,4 @@
+// Stores state for the app
 const initialData = {
   apps: {},
   columns: {
