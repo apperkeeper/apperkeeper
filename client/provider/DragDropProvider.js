@@ -47,10 +47,21 @@ const DragDropProvider = ({ children }) => {
 
   // Handling adding new apps to columns
   const addData = (columnId, newApp, e) => {
+    // Create app in database
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        company: 'Facebook',
+        position: 'Software Engineer',
+        contact: 'Nick',
+        notes: '$300,000',
+        status: 'Applied',
+      }),
+    });
+    // Retrieve id and data from database to generate new card
     const column = state.columns[columnId];
     // Adding new apps
-    // Create app in database
-    // Retrieve id and data from database to generate new card
     const apps = state.apps;
     const id = 2;
     const appData = {

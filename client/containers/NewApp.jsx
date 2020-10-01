@@ -4,11 +4,11 @@ import AppCard from './AppCard';
 
 const NewApp = ({ columnId }) => {
   const { addData, endEditing } = useContext(DrgDrpContext);
-  let newTask = useRef(null);
+  //let newTask = useRef(null);
 
   const handleAddClick = () => {
     endEditing(columnId);
-    addData(columnId, newTask.value);
+    //addData(columnId, newTask.value);
   };
 
   return (

@@ -1,16 +1,10 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-// Application card
-// Should be draggable
-
+// New application card
 const AppCard = (props) => {
-  const onSubmit = (event) => {
-    event.preventDefault(event);
-    // Send form data to database
-  };
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <div className="form">
         <label className="company">Company</label>
         <input type="text" id="company" placeholder="Google" />
