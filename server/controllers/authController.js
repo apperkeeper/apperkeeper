@@ -10,6 +10,7 @@ const authController = {};
 authController.getToken = (req, res, next) => {
   // store authorization token sent by OAuth server
   const requestToken = req.query.code;
+  console.log('requestToken',requestToken)
   
   // construct request to exchange authorization token for access token.
   // for further information, consult LinkedIn's docs: 
@@ -51,6 +52,7 @@ authController.getToken = (req, res, next) => {
         .then((parsed) => {
           // store LinkedIn unique ID and user's first name from profile
           const { id, localizedFirstName } = parsed;
+          console.log('id from ',id)
           
           // set cookies matching access token's expiration
           res.cookie("token", id, { maxAge: expiration })
@@ -66,5 +68,23 @@ authController.getToken = (req, res, next) => {
       return next(error);
     });
 };
+
+authController.checkCookie = (req, res, next) => {
+  const { token } = req.cookies;
+  console.log(token, "token from cookie check ")
+  console.log(req.cookies, "token from cookie check ")
+
+  if (token) return next();
+  return res.redirect('/signin');
+  // try {
+  //   if ( token ) {
+  //     console.log('hello')
+  //     return next();
+  //   }
+  // } catch (err) {
+  //   res.json('id doesnt match');
+  //   console.log(`id doesnt match : ${err}`)
+  // }
+}
 
 module.exports = authController;
