@@ -18,7 +18,7 @@ function App() {
                 const column = state.columns[columnId];
                 const isEditing = column.isEditing;
                 const task = column.appsOrder.map(
-                  (taskId) => state.tasks[taskId]
+                  (taskId) => state.apps[taskId]
                 );
                 return (
                   <StatusColumn

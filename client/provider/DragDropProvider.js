@@ -53,12 +53,12 @@ const DragDropProvider = ({ children }) => {
   const addData = (columnId, newTask, e) => {
     const column = state.columns[columnId];
     // Adding new apps
-    const tasks = state.tasks;
-    const tasksLength = Object.keys(tasks).length;
+    const apps = state.apps;
+    const tasksLength = Object.keys(apps).length;
     const newTaskId = `task-${tasksLength + 1}`;
     const taskContent = { id: newTaskId, content: newTask };
 
-    tasks[newTaskId] = taskContent;
+    apps[newTaskId] = taskContent;
     // Adding the new app id to the column object
     const newTasksOrder = [...column.appsOrder];
     newTasksOrder.push(newTaskId);
@@ -71,7 +71,7 @@ const DragDropProvider = ({ children }) => {
     // Update the state in initialData
     const newState = {
       ...state,
-      tasks,
+      apps,
       columns: {
         ...state.columns,
         [column.id]: {
