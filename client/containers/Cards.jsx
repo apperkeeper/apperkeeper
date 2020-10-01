@@ -5,7 +5,7 @@ const Cards = React.memo(({ app, index }) => {
   return (
     <Draggable draggableId={app.id} index={index}>
       {(provided, snapshot) => (
-        <li
+        <div
           className="list-item"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -16,8 +16,8 @@ const Cards = React.memo(({ app, index }) => {
           <p>Contact: {app.contact}</p>
           <p>Notes: {app.notes}</p>
           <p>Date Applied: {app.date}</p>
-          <button className="delete is-pulled-right btn-hover" />
-        </li>
+          <button>Delete</button>
+        </div>
       )}
     </Draggable>
   );

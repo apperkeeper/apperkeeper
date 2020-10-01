@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import initialData from '../data/initialData';
 
-// Creating new context (?)
+// Create new context
 const DrgDrpContext = React.createContext();
 
 // Using initialData as the initial state
@@ -63,18 +63,19 @@ const DragDropProvider = ({ children }) => {
     // Adding new apps
     const apps = state.apps;
     const appsLength = Object.keys(apps).length;
-    const newAppId = `task-${appsLength + 1}`;
+    const newAppId = `app-${appsLength + 1}`;
     const appContent = {
       id: newAppId,
       company: newCompany,
       position: newPosition,
       contact: newContact,
       notes: newNotes,
+      status: 'Interested',
       date: newDate,
     };
 
     apps[newAppId] = appContent;
-    // Adding the new app id to the column object
+    // Adding the new newAppId to the column
     const newAppsOrder = [...column.appsOrder];
     newAppsOrder.push(newAppId);
 
